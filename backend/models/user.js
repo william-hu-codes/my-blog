@@ -18,8 +18,15 @@ const userSchema = new mongoose.Schema({
       minLength: 3,
       required: true
     },
-    logins: [timestamps],
-    loginAttempts: [timestamps],
+    logins: [
+      {
+        type: Date,
+        default: Date.now
+      }
+    ],
+    loginAttempts: [{
+      type: Date
+    }],
 }, {
     timestamps: true,
     toJSON: {
