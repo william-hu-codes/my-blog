@@ -80,9 +80,13 @@ async function login(req, res) {
     const match = await bcrypt.compare(req.body.password, user.password);
     console.log("match", match)
     if (!match) {
+      user.loginAttempts.push(new Date())
+      user.save()
       throw new Error();
     }
     const token = createJWT(user);
+    user.logins.push(new Date())
+    user.save()
     res.json(token);
   } catch (err) {
     res.status(400).json('Bad Credentials');
@@ -95,6 +99,6 @@ function createJWT(user) {
     // data payload
     { user },
     process.env.SECRET,
-    { expiresIn: "2h" }
+    { expiresIn: "4h" }
   )
 }
