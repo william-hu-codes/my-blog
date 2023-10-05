@@ -11,8 +11,12 @@ module.exports = {
 
 async function create(req, res) {
   // console.log(req.body)
+  const data = req.body
+  const tagsArray = data.tags.split(", ")
+  data.tags = tagsArray
+  // data.author = [req.user._id]
   try {
-    res.status(201).json(await Post.create(req.body));
+    res.status(201).json(await Post.create(data));
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
