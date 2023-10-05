@@ -15,6 +15,7 @@ async function deleteAllPosts() {
     }catch(err){
         console.log(err)
     }
+    process.exit()
 }
 
 // deleteAllPosts()
@@ -26,6 +27,7 @@ async function deleteAllUsers() {
     }catch(err){
         console.log(err)
     }
+    process.exit()
 }
 
-deleteAllUsers()
+// deleteAllUsers()
