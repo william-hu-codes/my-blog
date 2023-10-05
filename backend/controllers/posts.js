@@ -12,8 +12,8 @@ module.exports = {
 async function create(req, res) {
   // console.log(req.body)
   const data = req.body
-  const tagsArray = data.tags.split(", ")
-  tagsArray.map((t) => t.toLowerCase())
+  let tagsArray = data.tags.split(", ")
+  tagsArray = tagsArray.map((t) => t.toLowerCase())
   data.tags = tagsArray
   // data.author = [req.user._id]
   try {
