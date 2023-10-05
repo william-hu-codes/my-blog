@@ -6,18 +6,18 @@ require('./db.connection')
 
 // import models
 const User = require("../models/user")
-const Case = require("../models/post")
+const Post = require("../models/post")
 
-async function deleteAllCases() {
+async function deleteAllPosts() {
     try {
-        await Case.deleteMany({})
-        console.log("deleted all cases")
+        await Post.deleteMany({})
+        console.log("deleted all posts")
     }catch(err){
         console.log(err)
     }
 }
 
-// deleteAllCases()
+// deleteAllPosts()
 
 async function deleteAllUsers() {
     try {

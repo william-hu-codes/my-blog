@@ -1,5 +1,5 @@
-const { Case } = require("../models");
-// console.log(Case);
+const { Post } = require("../models");
+// console.log(Post);
 
 module.exports = {
   create,
@@ -12,7 +12,7 @@ module.exports = {
 async function create(req, res) {
   // console.log(req.body)
   try {
-    res.status(201).json(await Case.create(req.body));
+    res.status(201).json(await Post.create(req.body));
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -21,7 +21,7 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    res.status(200).json(await Case.find());
+    res.status(200).json(await Post.find());
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -29,7 +29,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    res.status(200).json(await Case.findById(req.params.id));
+    res.status(200).json(await Post.findById(req.params.id));
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -40,7 +40,7 @@ async function update(req, res) {
     res
     .status(200)
     .json(
-      await Case.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      await Post.findByIdAndUpdate(req.params.id, req.body, { new: true })
     );
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -52,7 +52,7 @@ async function destroy(req, res) {
     res
     .status(200)
     .json(
-      await Case.findOneAndDelete({_id: req.params.id})
+      await Post.findOneAndDelete({_id: req.params.id})
     );
   } catch (error) {
     res.status(400).json({ error: error.message });
