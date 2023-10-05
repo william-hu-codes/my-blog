@@ -1,0 +1,12 @@
+nav {
+    gap: 20px;
+    border: 1px solid red;
+}
+
+nav .link {
+    padding: 0 15px;
+}
+
+nav .login-logout {
+    margin-left: auto;
+}

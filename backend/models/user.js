@@ -21,11 +21,12 @@ const userSchema = new mongoose.Schema({
     logins: [
       {
         type: Date,
-        default: Date.now
+        default: returnDate()
       }
     ],
     loginAttempts: [{
-      type: Date
+      type: Date,
+      default: []
     }],
 }, {
     timestamps: true,
@@ -45,6 +46,8 @@ userSchema.pre('save', async function (next) {
 
 });
 
-
+function returnDate() {
+  return new Date()
+}
 
 module.exports = mongoose.model('User', userSchema)

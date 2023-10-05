@@ -6,7 +6,7 @@ require('./db.connection')
 
 // import models
 const User = require("../models/user")
-const Case = require("../models/case")
+const Case = require("../models/post")
 
 async function deleteAllCases() {
     try {

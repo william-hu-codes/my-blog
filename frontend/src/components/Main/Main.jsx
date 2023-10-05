@@ -11,17 +11,11 @@ export default function Main({user, setUser}){
 
     return(
         <main className="main">
-        { user ? 
-        <>
           <Routes>
             <Route path="/" element={<IndexPage />} /> 
+            <Route path="/login" element={<AuthPage setUser={setUser} />} />
             <Route path="/*" element={<ErrorPage />} />   
           </Routes>
-        </>
-          :
-    
-          <AuthPage setUser={setUser} />
-      }
         </main>
     )
 }

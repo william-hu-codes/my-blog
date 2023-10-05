@@ -1,4 +1,4 @@
 module.exports = {
     User: require('./user'),
-    Case: require("./case")
+    Case: require("./post")
 }

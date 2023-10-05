@@ -11,22 +11,24 @@ export default function NavBar ({ user, setUser }) {
 
     return (
 
-        <nav>
-             <Link className="link" to="/">
-                <button className="nav-link"><h4>HOME</h4></button>
+        <nav className="flex-row-start">
+            <Link className="link" to="/">
+                <h4 className="nav-link">HOME</h4>
             </Link>
             { user !== null ? 
                 <>
                     <Link className="link" to="/user">
-                        <button className="nav-link profile-button"><span><h4>PROFILE: </h4><p> {user?.name}</p></span></button>
+                        <h4>PROFILE: {user?.name}</h4>
                     </Link>
                     {/* <span><strong>Welcome, {user?.name}</strong> </span> */}
                     <Link className="link logout" to="/" onClick={handleLogOut}>
-                        <button className="nav-link"><h4>LOG OUT</h4></button>
+                        <h4>LOG OUT</h4>
                     </Link>
                 </>
                 :
-                null 
+                <Link className="link login-logout" to="/login" >
+                    <h4>LOGIN</h4>
+                </Link> 
             }
 
         </nav>
