@@ -1,8 +1,8 @@
-import "./CasesIndexPage.css"
+import "./PostsIndexPage.css"
 import { useState, useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
-import { getCases } from "../../utilities/cases-service";
+import { getPosts } from "../../utilities/posts-service";
 import CaseItem from "./CaseItem";
 
 export default function IndexPage () {

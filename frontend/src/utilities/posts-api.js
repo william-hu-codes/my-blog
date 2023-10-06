@@ -9,7 +9,7 @@ export async function create(data) {
   return sendRequest(`${BASE_URL}/posts`, "POST", data)
 }
 
-export async function getMostRecentCase() {
+export async function getMostRecentPost() {
   return sendRequest(`${BASE_URL}/posts/most-recent`, "GET")
 }
 

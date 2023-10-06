@@ -1,7 +1,7 @@
 import * as postsAPI from './posts-api'
 
 
-export async function getCases(){
+export async function getPosts(){
     try {
         const data = await postsAPI.index()
         return data
@@ -10,7 +10,7 @@ export async function getCases(){
     }
 }
 
-export async function createCase(newCaseData){
+export async function createPost(newCaseData){
     try {
         const data = await postsAPI.create(newCaseData)
         return data
@@ -19,7 +19,7 @@ export async function createCase(newCaseData){
     }
 }
 
-export async function getCase(id){
+export async function getPost(id){
     try{
        const data = await postsAPI.detail(id)
        return data
@@ -27,26 +27,26 @@ export async function getCase(id){
         return err
     }
 }
-export async function getCaseSummary(id){
+// export async functionPostsaseSummary(id){
+//     try{
+//        const data = await postsAPIPostsaseSummary(id)
+//        return data
+//     }catch(err){
+//         return err
+//     }
+// }
+
+
+export async function getMostRecentPost(id){
     try{
-       const data = await postsAPI.getCaseSummary(id)
+       const data = await postsAPI.getMostRecentPost(id)
        return data
     }catch(err){
         return err
     }
 }
 
-
-export async function getMostRecentCase(id){
-    try{
-       const data = await postsAPI.getMostRecentCase(id)
-       return data
-    }catch(err){
-        return err
-    }
-}
-
-export async function deleteCase(id){
+export async function deletePost(id){
     try{
        const data = await postsAPI.destroy(id)
        return data
