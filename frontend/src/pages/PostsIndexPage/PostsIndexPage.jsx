@@ -2,12 +2,12 @@ import Loader from "../../components/Loader/Loader";
 import { useState } from "react";
 import "./PostsIndexPage.css"
 
-export default function IndexPage () {
+export default function PostsIndexPage () {
 
-return (
-
-<Loader />
-
-);
+    return (
+        <section className="posts-index-ctr">
+            <Loader />
+        </section>
+    );
 
 }

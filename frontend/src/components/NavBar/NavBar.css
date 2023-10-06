@@ -1,12 +1,19 @@
 nav {
     gap: 20px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    height: 50px
 }
 
 nav .link {
     padding: 0 15px;
+    text-decoration: none;
+    color: black;
 }
 
-nav .login-logout {
+nav .right-align {
     margin-left: auto;
 }
+
+/* nav .login-logout, nav .about {
+    margin-left: auto;
+} */

@@ -1,6 +1,12 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .App {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  background-color: var(--background);
 }
 
 .flex-ctr-ctr {
@@ -14,4 +20,5 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
 }
