@@ -1,9 +1,10 @@
 *{
   box-sizing: border-box;
+  background-color: var(--background);
 }
 
 :root {
-  --background: beige;
+  --background: rgba(239, 235, 230, 1.0);
 }
 
 body {

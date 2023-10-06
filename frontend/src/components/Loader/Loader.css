@@ -1,0 +1,14 @@
+.loader {
+    width: 1.5rem;
+    animation: loading infinite 3s linear;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+  @keyframes loading {
+    from {
+      transform: rotateZ(0deg);
+    }to{
+      transform: rotateZ(360deg);
+    }
+  }

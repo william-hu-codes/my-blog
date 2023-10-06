@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 
-import IndexPage from '../../pages/IndexPage/IndexPage'
+import IndexPage from '../../pages/PostsIndexPage/PostsIndexPage'
 import ErrorPage from '../../pages/ErrorPage/ErrorPage'
 import AuthPage from '../../pages/AuthPage/AuthPage'
 import "./Main.css"
