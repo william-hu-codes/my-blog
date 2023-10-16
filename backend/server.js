@@ -8,6 +8,7 @@ require('./config/db.connection.js')
 
 const usersRouter = require('./routes/users')
 const postsRouter = require('./routes/posts.js')
+const tagsRouter = require('./routes/tags.js')
 
 const cors = require("cors")
 const morgan = require("morgan")
@@ -49,6 +50,7 @@ app.use(morgan("dev")); // logging for development
 // all requests for endpoints that begin with '/users'
 app.use('/users', usersRouter)
 app.use('/posts', postsRouter)
+app.use("/tags", tagsRouter)
 
 
 app.get("/", (req, res) => {
