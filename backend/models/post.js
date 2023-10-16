@@ -22,8 +22,8 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     tags: [{
-        type: String,
-        default:[]
+        type: Schema.Types.ObjectId,
+        ref: "Tag",
     }]
 }, {
     timestamps: true
