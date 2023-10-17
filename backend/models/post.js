@@ -5,6 +5,10 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+    title: {
+        type: String,
+        default: "untitled"
+    },
     date: {
         type: Date,
         default: returnDate()
@@ -24,7 +28,15 @@ const postSchema = new mongoose.Schema({
     tags: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Tag",
-    }]
+    }],
+    likes: {
+        type: Number,
+        default: 0,
+    },
+    shares: {
+        type: Number,
+        default: 0,
+    }
 }, {
     timestamps: true
 })

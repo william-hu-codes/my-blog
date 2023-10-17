@@ -14,6 +14,10 @@ nav .right-align {
     margin-left: auto;
 }
 
+nav .logo {
+    font-size: 28px;
+}
+
 /* nav .login-logout, nav .about {
     margin-left: auto;
 } */

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { getPosts } from "../../utilities/posts-service";
 import PostItem from "./PostItem";
 
-export default function PostIndexPage () {
+export default function PostIndexPage ({user}) {
     const [posts, setPosts] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
 

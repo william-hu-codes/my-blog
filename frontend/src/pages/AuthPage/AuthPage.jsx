@@ -9,7 +9,7 @@ export default function AuthPage ({ setUser }) {
 
 return (
 
-    <main>
+    <section className="auth-page-ctr">
         <h1>AuthPage</h1>
         <button onClick={(() => setShowSignUp(!showSignUp))}>{ showSignUp ? "Alread a user?" : "Sign Up" }</button>
         {showSignUp ?
@@ -17,7 +17,7 @@ return (
         :
         <LoginForm setUser={setUser} />
         }
-    </main>
+    </section>
 
 );
 }
