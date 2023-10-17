@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import "./PostsNewPage.css"
+import ImageForm from "../../components/ImageForm/ImageForm";
 
 export default function PostsNewPage({user}) {
     const navigate = useNavigate()
@@ -34,6 +35,8 @@ export default function PostsNewPage({user}) {
                 {/* tags here here */}
 
                 <label ></label>
+
+                <ImageForm />
         </section>
     )
 }
