@@ -8,7 +8,7 @@ function Footer(props) {
     return (
       <footer className="flex-ctr-ctr">
         <a href="https://william-hu.com/" target="_blank">
-          <h5 className="footer-text">William Hu</h5>
+          <h5 className="footer-text">© William Hu, 2023</h5>
         </a>
         <h5 className="footer-text">|</h5>
         {/* <h5 className="footer-text">® 2023</h5> */}

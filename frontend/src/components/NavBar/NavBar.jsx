@@ -21,12 +21,8 @@ export default function NavBar ({ user, setUser }) {
                 </Link>
                 { user !== null ? 
                     <>
-                        {/* <Link className="link" to="/user"> */}
-                            <h4>profile: {user?.name}</h4>
-                        {/* </Link> */}
-                        {/* <span><strong>Welcome, {user?.name}</strong> </span> */}
                         <Link className="link logout" to="/" onClick={handleLogOut}>
-                            <h4>log out</h4>
+                            <h4><em>{user?.name}</em> log out</h4>
                         </Link>
                     </>
                     :

@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
 import { getPosts } from "../../utilities/posts-service";
-import CaseItem from "./CaseItem";
+import PostItem from "./PostItem";
 
-export default function IndexPage () {
-    const [cases, setCases] = useState(null)
+export default function PostIndexPage () {
+    const [posts, setPosts] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
 
     async function handleRequest() {
-        const response = await getCases();
-        if(typeof response === "object") {
-            setCases(response)
+        const response = await getPosts();
+        if (typeof response === "object") {
+            setPosts(response)
             setIsLoading(false)
         } else {
             console.log("error: ", response)
@@ -22,7 +22,7 @@ export default function IndexPage () {
         handleRequest();
       }, [])
 
-    const casesList = cases?.map((simCase, idx) => < CaseItem simCase={simCase} idx={idx} handleRequest={handleRequest} />)
+    // const postsList = posts?.map((post, idx) => < PostItem post={post} idx={idx} handleRequest={handleRequest} />)
 
     return (
         <section className="posts-index-ctr">

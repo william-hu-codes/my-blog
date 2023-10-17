@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     tags: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Tag",
     }]
 }, {
