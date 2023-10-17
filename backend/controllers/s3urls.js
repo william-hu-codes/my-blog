@@ -1,6 +1,6 @@
 // import s3 from "../config/s3"
 
-const s3 = require("../config/s3")
+const generateUploadURL = require("../config/s3")
 
 module.exports = {
     get
@@ -8,7 +8,8 @@ module.exports = {
 
 async function get(req, res, next) {
     try {
-        const url = s3.generateUploadURL()
+        console.log("hitting s3 get action")
+        const url = await generateUploadURL()
         res.send({url})
     }catch (error) {
         console.log(error)

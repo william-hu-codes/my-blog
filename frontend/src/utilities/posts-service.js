@@ -55,3 +55,12 @@ export async function deletePost(id){
     }
 }
 
+export async function getS3Url() {
+    try {
+        const response = await postsAPI.getS3Url()
+        return response
+    }catch(err) {
+        console.log(err)
+        return err
+    }
+}

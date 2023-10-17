@@ -6,7 +6,9 @@
 const dotenv = require("dotenv")
 const aws = require("aws-sdk")
 const crypto = require("crypto")
-const promisify = require("util")
+const { promisify } = require("util")
+
+const randomBytes = promisify(crypto.randomBytes)
 
 dotenv.config()
 
@@ -19,7 +21,7 @@ const s3 = new aws.S3({
     region,
     accessKeyId,
     secretAccessKey,
-    signatureVersion: "4"
+    signatureVersion: "v4"
 })
 
 module.exports = async function generateUploadURL() {
