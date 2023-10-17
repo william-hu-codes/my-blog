@@ -9,6 +9,7 @@ require('./config/db.connection.js')
 const usersRouter = require('./routes/users')
 const postsRouter = require('./routes/posts.js')
 const tagsRouter = require('./routes/tags.js')
+const s3urlsRouter = require('./routes/s3urls.js')
 
 const cors = require("cors")
 const morgan = require("morgan")
@@ -51,6 +52,7 @@ app.use(morgan("dev")); // logging for development
 app.use('/users', usersRouter)
 app.use('/posts', postsRouter)
 app.use("/tags", tagsRouter)
+app.use("/s3urls", s3urlsRouter)
 
 
 app.get("/", (req, res) => {
