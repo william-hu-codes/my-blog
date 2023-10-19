@@ -54,3 +54,25 @@ export async function deletePost(id){
         return err
     }
 }
+
+export async function getS3Url() {
+    try {
+        const response = await postsAPI.getS3Url()
+        return response
+    }catch(err) {
+        console.log(err)
+        return err
+    }
+}
+
+export async function sendS3Url(url, file) {
+    try {
+        const response = await postsAPI.sendS3Url(url, file)
+        return response
+    }catch(err) {
+        console.log(err)
+        return err
+    }
+}
+
+
