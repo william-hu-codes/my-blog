@@ -30,7 +30,7 @@ footer > h4 {
 .social-media-icon:hover {
     /* background-color: lightsalmon; */
     /* border-radius: 5px; */
-    color: lightsalmon;
+    /* color: lightsalmon; */
     font-size: 25px;
     transition: 0.25s
 }
