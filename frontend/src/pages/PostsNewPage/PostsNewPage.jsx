@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 import "./PostsNewPage.css"
 import ImageForm from "../../components/ImageForm/ImageForm";
 
 export default function PostsNewPage({user}) {
     const navigate = useNavigate()
+
+    // image form states
+    const [imageFormData, setImageFormData] = useState()
+    const [imageUrl, setImageUrl] = useState(null)
+    // image form states
+
 
     function currentDate() {
         return new Date().toISOString().slice(0, 10);
@@ -25,18 +32,15 @@ export default function PostsNewPage({user}) {
                 <input type="date" name="date"/>
                 <label >location</label>
                 <input type="text" name="location" />
-                <label >images</label>
-                <button>placeholder button</button>
+                <label >upload image</label>
+                <ImageForm imageFormData={imageFormData} setImageFormData={setImageFormData} imageUrl={imageUrl} setImageUrl={setImageUrl}/>
                 {/* add cloudinary api here */}
                 <label >body</label>
-                <textarea name="body"c ols="30" rows="10"></textarea>
+                <textarea name="body" cols="30" rows="10"></textarea>
             </form>
                 <label >tags</label>
                 {/* tags here here */}
 
-                <label ></label>
-
-                <ImageForm />
         </section>
     )
 }
