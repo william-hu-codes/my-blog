@@ -1,5 +1,5 @@
 export default function TagItem({tag, idx}) {
  return (
-    <h1>tag item</h1>
+    <h1 key={idx}>{tag.tagName}</h1>
  )
 }

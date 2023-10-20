@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Loader from "../../components/Loader/Loader";
-import { getTags } from "../../utilities/tags-service"
+import { getTags, createTag } from "../../utilities/tags-service"
 import TagItem from "./TagItem";
 import "./PostsNewPage.css"
 import ImageForm from "../../components/ImageForm/ImageForm";
@@ -13,10 +13,12 @@ export default function PostsNewPage({user}) {
     const [imageFormData, setImageFormData] = useState()
     const [imageUrl, setImageUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
-    const [tags, setTags] = useState(null)
+    const [tags, setTags] = useState([])
     const [formData, setFormData] = useState({
-        date: currentDate()
+        date: currentDate(),
+        tags: []
     })
+    const [tagFormData, setTagFormData] = useState("")
     // image form states
 
     async function handleRequest() {
@@ -34,7 +36,19 @@ export default function PostsNewPage({user}) {
         setFormData(newFormData)
     }
 
-    console.log(tags)
+    async function handleAddTag(evt) {
+        evt.preventDefault()
+        const tagData = {tagName: tagFormData.toLowerCase()}
+        try {
+            await createTag(tagData)
+            await handleRequest()
+        }catch(error) {
+            console.log(error)
+        }
+    }
+
+    console.log("tag", tags)
+    console.log("tags form", tagFormData)
 
     useEffect(() => {
         handleRequest();
@@ -68,14 +82,15 @@ export default function PostsNewPage({user}) {
                 <label >body</label>
                 <textarea name="body" cols="30" rows="10" value={formData.body} onChange={handleChange} ></textarea>
             </form>
-            <form className="tags-ctr">
+            <form className="tags-ctr" onSubmit={handleAddTag}>
                 <label >tags</label>
-                <input type="text" />
+                <input type="text" name="tagName" value={tagFormData} onChange={(evt) => setTagFormData(evt.target.value)} />
                 <button type="submit">add tag</button>
                 <div></div>
                 {isLoading ? 
                     <Loader />
                     :
+                    // {tagsList}
                     null
                 }
             </form>
