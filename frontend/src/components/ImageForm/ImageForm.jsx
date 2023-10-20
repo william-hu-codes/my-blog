@@ -23,9 +23,9 @@ export default function ImageForm({imageFormData, setImageFormData, imageUrl, se
         const file = imageFormData
         try {
             const { url } = await getS3Url()
-            console.log(url)
+            // console.log(url)
             setImageUrl(await sendS3Url(url, imageFormData))
-            console.log(imageUrl)
+            // console.log(imageUrl)
         }catch (error) {
             console.log(error)
         }
@@ -38,9 +38,9 @@ export default function ImageForm({imageFormData, setImageFormData, imageUrl, se
         }
     }
 
-    console.log(imageFormData)
-    console.log(!!imageUrl)
-    console.log("imageurl", imageUrl)
+    // console.log(imageFormData)
+    // console.log(!!imageUrl)
+    // console.log("imageurl", imageUrl)
 
     return (
         <section className="image-form-ctr">

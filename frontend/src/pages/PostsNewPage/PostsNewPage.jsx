@@ -47,8 +47,8 @@ export default function PostsNewPage({user}) {
         }
     }
 
-    console.log("tags", tags)
-    console.log("tags form", tagFormData)
+    // console.log("tags", tags)
+    // console.log("tags form", tagFormData)
 
     useEffect(() => {
         handleRequest();
@@ -58,8 +58,8 @@ export default function PostsNewPage({user}) {
         return new Date().toISOString().slice(0, 10);
     }
 
-    const tagsList = tags?.map((tag, idx) => <TagItem tag={tag} idx={idx} />)
-    console.log("Tagslist" ,tagsList)
+    const tagsList = tags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
+    // console.log("Tagslist" ,tagsList)
 
     return !user ? (
         <>
