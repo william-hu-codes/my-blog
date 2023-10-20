@@ -54,7 +54,6 @@ app.use('/posts', postsRouter)
 app.use("/tags", tagsRouter)
 app.use("/s3urls", s3urlsRouter)
 
-
 app.get("/", (req, res) => {
     res.send("hello world");
 });
