@@ -37,11 +37,11 @@
     padding: 5px;
 }
 
-.active-tag {
+.inactive-tag {
     background-color: rgb(236, 210, 199);
 }
 
-.inactive-tag {
+.active-tag {
     background-color: lightsalmon;
     color: white;
 }

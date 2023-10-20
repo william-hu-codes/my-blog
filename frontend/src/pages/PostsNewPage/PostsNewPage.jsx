@@ -19,6 +19,7 @@ export default function PostsNewPage({user}) {
         tags: []
     })
     const [tagFormData, setTagFormData] = useState("")
+    const regex = new RegExp(`/.*${tagFormData}.*/`)
     // image form states
 
     async function handleRequest() {
@@ -47,7 +48,7 @@ export default function PostsNewPage({user}) {
         }
     }
 
-    // console.log("tags", tags)
+    console.log("tags", tags)
     // console.log("tags form", tagFormData)
 
     useEffect(() => {
@@ -57,6 +58,9 @@ export default function PostsNewPage({user}) {
     function currentDate() {
         return new Date().toISOString().slice(0, 10);
     }
+
+    const filteredTags = tags?.filter((tag) => tag.tagName.match(regex))
+    console.log(filteredTags)
 
     const tagsList = tags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
     // console.log("Tagslist" ,tagsList)
