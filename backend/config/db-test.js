@@ -7,6 +7,7 @@ require('./db.connection')
 // import models
 const User = require("../models/user")
 const Post = require("../models/post")
+const Tag = require("../models/tag")
 
 async function deleteAllPosts() {
     try {
@@ -31,3 +32,14 @@ async function deleteAllUsers() {
 }
 
 // deleteAllUsers()
+
+async function deleteAllTags() {
+    try {
+        await Tag.deleteMany({})
+        console.log("deleted all tags")
+    }catch(err) {
+        console.log(err)
+    }
+}
+
+deleteAllTags()

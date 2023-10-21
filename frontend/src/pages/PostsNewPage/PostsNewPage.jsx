@@ -44,10 +44,11 @@ export default function PostsNewPage({user}) {
             await createTag(tagData)
             await handleRequest()
             // const newFormData = {...formData}
-            const newTag = tags.find((tag) => tag.tagName === tagFormData.toLowerCase())
-            console.log("newtag", newTag) // not working bc async usestate function
+            const newTag = tags?.find((tag) => tag.tagName === tagFormData.toLowerCase())
+            // console.log("newtag", newTag) // not working bc async usestate function
             // newFormData.tags.push(newTag._id)
             // setFormData(newFormData)
+            setTagFormData("")
         }catch(error) {
             console.log(error)
         }
@@ -62,17 +63,12 @@ export default function PostsNewPage({user}) {
         return new Date().toISOString().slice(0, 10);
     }
 
-    // const filteredTags = tags?.filter((tag) => console.log(tag.tagName.match(regex)))
     const filteredTags = tags?.filter((tag) => regex.test(tag.tagName))
-    // console.log("tagformdata", tagFormData)
-    // console.log("tags", tags)
-    // console.log("filteredtags", filteredTags)
 
     // const tagsList = tags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
     const filteredTagsList = filteredTags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
     const allTagNames = tags?.map((tag) => tag.tagName)
-    console.log("allTagNames",allTagNames)
-    // console.log("Tagslist" ,tagsList)
+
 
     return !user ? (
         <>
@@ -101,6 +97,7 @@ export default function PostsNewPage({user}) {
                 <input required placeholder="search tag" type="text" name="tagName" value={tagFormData} onChange={(evt) => setTagFormData(evt.target.value)} />
                 <button type="submit" disabled={allTagNames.includes(tagFormData)}>add tag</button>
                 <div></div>
+            </form>
                 {isLoading ? 
                     <Loader />
                     :
@@ -108,10 +105,6 @@ export default function PostsNewPage({user}) {
                         {filteredTagsList}
                     </div>
                 }
-            </form>
-
-                {/* tags here here */}
-
         </section>
     )
 }
