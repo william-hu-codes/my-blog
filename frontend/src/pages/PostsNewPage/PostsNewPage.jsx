@@ -43,11 +43,17 @@ export default function PostsNewPage({user}) {
         try {
             await createTag(tagData)
             await handleRequest()
+            // const newFormData = {...formData}
+            // newFormData.tags.push(newTag._id)
+            // setFormData(newFormData)
         }catch(error) {
             console.log(error)
         }
     }
-
+    
+    const newTag = tags?.find((tag) => tag.tagName === tagFormData.toLowerCase())
+    console.log("newtag", newTag)
+    
     useEffect(() => {
         handleRequest();
       }, [])
@@ -64,6 +70,8 @@ export default function PostsNewPage({user}) {
 
     // const tagsList = tags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
     const filteredTagsList = filteredTags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
+    const allTagNames = tags?.map((tag) => tag.tagName)
+    console.log("allTagNames",allTagNames)
     // console.log("Tagslist" ,tagsList)
 
     return !user ? (
@@ -90,8 +98,8 @@ export default function PostsNewPage({user}) {
             </form>
             <form className="tags-ctr" onSubmit={handleAddTag}>
                 <label >tags</label>
-                <input placeholder="search tag" type="text" name="tagName" value={tagFormData} onChange={(evt) => setTagFormData(evt.target.value)} />
-                <button type="submit">add tag</button>
+                <input required placeholder="search tag" type="text" name="tagName" value={tagFormData} onChange={(evt) => setTagFormData(evt.target.value)} />
+                <button type="submit" disabled={allTagNames.includes(tagFormData)}>add tag</button>
                 <div></div>
                 {isLoading ? 
                     <Loader />
