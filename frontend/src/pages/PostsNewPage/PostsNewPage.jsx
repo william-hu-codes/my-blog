@@ -19,7 +19,7 @@ export default function PostsNewPage({user}) {
         tags: []
     })
     const [tagFormData, setTagFormData] = useState("")
-    const regex = new RegExp(`/.*${tagFormData}.*/`)
+    const regex = new RegExp(`.*${tagFormData}.*`)
     // image form states
 
     async function handleRequest() {
@@ -48,9 +48,6 @@ export default function PostsNewPage({user}) {
         }
     }
 
-    console.log("tags", tags)
-    // console.log("tags form", tagFormData)
-
     useEffect(() => {
         handleRequest();
       }, [])
@@ -59,10 +56,14 @@ export default function PostsNewPage({user}) {
         return new Date().toISOString().slice(0, 10);
     }
 
-    const filteredTags = tags?.filter((tag) => tag.tagName.match(regex))
-    console.log(filteredTags)
+    // const filteredTags = tags?.filter((tag) => console.log(tag.tagName.match(regex)))
+    const filteredTags = tags?.filter((tag) => regex.test(tag.tagName))
+    // console.log("tagformdata", tagFormData)
+    // console.log("tags", tags)
+    // console.log("filteredtags", filteredTags)
 
-    const tagsList = tags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
+    // const tagsList = tags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
+    const filteredTagsList = filteredTags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
     // console.log("Tagslist" ,tagsList)
 
     return !user ? (
@@ -89,14 +90,14 @@ export default function PostsNewPage({user}) {
             </form>
             <form className="tags-ctr" onSubmit={handleAddTag}>
                 <label >tags</label>
-                <input type="text" name="tagName" value={tagFormData} onChange={(evt) => setTagFormData(evt.target.value)} />
+                <input placeholder="search tag" type="text" name="tagName" value={tagFormData} onChange={(evt) => setTagFormData(evt.target.value)} />
                 <button type="submit">add tag</button>
                 <div></div>
                 {isLoading ? 
                     <Loader />
                     :
                     <div className="rendered-tags">
-                        {tagsList}
+                        {filteredTagsList}
                     </div>
                 }
             </form>
