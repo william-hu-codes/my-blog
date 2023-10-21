@@ -44,6 +44,8 @@ export default function PostsNewPage({user}) {
             await createTag(tagData)
             await handleRequest()
             // const newFormData = {...formData}
+            const newTag = tags.find((tag) => tag.tagName === tagFormData.toLowerCase())
+            console.log("newtag", newTag) // not working bc async usestate function
             // newFormData.tags.push(newTag._id)
             // setFormData(newFormData)
         }catch(error) {
@@ -51,8 +53,6 @@ export default function PostsNewPage({user}) {
         }
     }
     
-    const newTag = tags?.find((tag) => tag.tagName === tagFormData.toLowerCase())
-    console.log("newtag", newTag)
     
     useEffect(() => {
         handleRequest();
