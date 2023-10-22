@@ -22,12 +22,13 @@ export default function PostIndexPage ({user}) {
         handleRequest();
       }, [])
 
-    // const postsList = posts?.map((post, idx) => < PostItem post={post} idx={idx} handleRequest={handleRequest} />)
+    const postsList = posts?.map((post, idx) => < PostItem post={post} idx={idx} handleRequest={handleRequest} />)
 
-    return (
-        <section className="posts-index-ctr">
-            <Loader />
+    return isLoading ? <Loader /> :
+      (
+        <section className="post-index-page-ctr">
+            <h1>posts</h1>
+            {postsList}
         </section>
-    );
-
+      )
 }

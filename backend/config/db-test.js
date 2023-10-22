@@ -40,6 +40,7 @@ async function deleteAllTags() {
     }catch(err) {
         console.log(err)
     }
+    process.exit()
 }
 
-deleteAllTags()
+// deleteAllTags()
