@@ -29,7 +29,7 @@ async function create(req, res) {
 async function index(req, res) {
   try {
     // console.log(req.user._id)
-    res.status(200).json(await Post.find());
+    res.status(200).json(await Post.find().populate("tags"));
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

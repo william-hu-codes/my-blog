@@ -12,3 +12,7 @@
 .location, .date {
     font-style: italic;
 }
+
+.post-image {
+    width: 80vw;
+}
