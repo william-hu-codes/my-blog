@@ -15,6 +15,7 @@
 
 .post-image {
     width: 80vw;
+    max-width: 800px;
     margin-top: 10px;
 }
 
