@@ -1,4 +1,7 @@
+import { useState } from "react"
+
 export default function PostItem({post, idx}) {
+    const [showMore, setShowMore] = useState(false)
     console.log(post)
     return (
         <section className="post-item-ctr" key={idx}>
@@ -9,6 +12,12 @@ export default function PostItem({post, idx}) {
             <div className="post-tags">
                 {post.tags?.map((tag) => <p className="post-tag">{tag.tagName}</p>)}
             </div>
+            {showMore ? 
+                <p className="post-body">{post.body}...</p>
+                :
+                <p className="post-body">{post.body.substring(0, 125)}...</p>
+            }
+            <button onClick={() => setShowMore(!showMore)}>{showMore ? "show less" : "show more"}</button>
         </section>
     )
 }

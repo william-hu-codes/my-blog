@@ -10,13 +10,14 @@ export default function AuthPage ({ setUser }) {
 return (
 
     <section className="auth-page-ctr">
-        <h1>AuthPage</h1>
-        <button onClick={(() => setShowSignUp(!showSignUp))}>{ showSignUp ? "Alread a user?" : "Sign Up" }</button>
-        {showSignUp ?
+        {/* <h1>login</h1> */}
+        <h4><em>note this login is for admins only</em></h4>
+        {/* <button onClick={(() => setShowSignUp(!showSignUp))}>{ showSignUp ? "Alread a user?" : "Sign Up" }</button> */}
+        {/* {showSignUp ?
         <SignUpForm setUser={setUser} />
-        :
+        : */}
         <LoginForm setUser={setUser} />
-        }
+        {/* } */}
     </section>
 
 );

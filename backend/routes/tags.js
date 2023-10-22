@@ -25,17 +25,17 @@ router.get('/:id', tagsCtrl.show)
 ///////////////////////////////
 // CREATE - POST
 ////////////////////////////////
-router.post('/', tagsCtrl.create)
+router.post('/', ensureLoggedIn, tagsCtrl.create)
 
 ///////////////////////////////
 // DESTROY - DELETE 
 ////////////////////////////////
-router.delete('/:id', tagsCtrl.delete)
+router.delete('/:id', ensureLoggedIn, tagsCtrl.delete)
 
 ///////////////////////////////
 // UPDATE - PUT
 ////////////////////////////////
-router.put('/:id', tagsCtrl.update)
+router.put('/:id', ensureLoggedIn, tagsCtrl.update)
 
 // MISSING - NEW (rendering a template for creating a post)
 // MISSING - EDIT (rendering a template for editing a speific post)
