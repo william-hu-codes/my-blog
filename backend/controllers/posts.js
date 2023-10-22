@@ -12,6 +12,7 @@ module.exports = {
 async function create(req, res) {
   // console.log(req.body)
   const data = req.body
+  data.author = req.user._id
   
   // let tagsArray = data.tags.split(", ")
   // tagsArray = tagsArray.map((t) => t.toLowerCase())
