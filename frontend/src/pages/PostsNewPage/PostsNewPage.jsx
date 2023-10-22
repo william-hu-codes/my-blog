@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Loader from "../../components/Loader/Loader";
 import { getTags, createTag } from "../../utilities/tags-service"
+import { createPost } from "../../utilities/posts-service";
 import TagItem from "./TagItem";
 import "./PostsNewPage.css"
 import ImageForm from "../../components/ImageForm/ImageForm";
@@ -20,6 +21,7 @@ export default function PostsNewPage({user}) {
     })
     const [tagFormData, setTagFormData] = useState("")
     const regex = new RegExp(`.*${tagFormData}.*`)
+    const [isPosting, setIsPosting] = useState(false)
     // image form states
 
     async function handleRequest() {
@@ -29,6 +31,19 @@ export default function PostsNewPage({user}) {
             setIsLoading(false)
         } else {
             console.log("error: ", response)
+        }
+    }
+
+    async function handleSubmit(evt) {
+        evt.preventDefault()
+        try {
+            setIsPosting(true)
+            await createPost(formData)
+            navigate("/")
+        } catch(err) {
+            console.log(err)
+            setIsPosting(false)
+            navigate("/")
         }
     }
 
@@ -105,6 +120,12 @@ export default function PostsNewPage({user}) {
                         {filteredTagsList}
                     </div>
                 }
+                {isPosting ? 
+                    <Loader />
+                    :
+                    <button className="flex" onClick={handleSubmit}>post</button>
+                }
+
         </section>
     )
 }
