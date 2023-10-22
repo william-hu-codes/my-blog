@@ -5,6 +5,7 @@ import ErrorPage from '../../pages/ErrorPage/ErrorPage'
 import AuthPage from '../../pages/AuthPage/AuthPage'
 import "./Main.css"
 import PostsNewPage from '../../pages/PostsNewPage/PostsNewPage'
+import AboutPage from '../../pages/AboutPage/AboutPage'
 
 
 export default function Main({user, setUser}){
@@ -16,6 +17,7 @@ export default function Main({user, setUser}){
             <Route path="/" element={<IndexPage user={user}/>} /> 
             <Route path="/login" element={<AuthPage setUser={setUser} />} />
             <Route path="/posts/new" element={<PostsNewPage user={user}/>} />
+            <Route path="/about" element={<AboutPage user={user} />} ></Route>
             <Route path="/*" element={<ErrorPage />} />   
           </Routes>
         </main>
