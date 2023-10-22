@@ -38,7 +38,9 @@ export default function PostsNewPage({user}) {
         evt.preventDefault()
         try {
             setIsPosting(true)
-            await createPost(formData)
+            const finalFormData = {...formData}
+            finalFormData.images = [imageUrl]
+            await createPost(finalFormData)
             navigate("/")
         } catch(err) {
             console.log(err)
