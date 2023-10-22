@@ -7,6 +7,7 @@ module.exports = {
   show,
   update,
   delete: destroy,
+  getNewest
 };
 
 async function create(req, res) {
@@ -66,3 +67,11 @@ async function destroy(req, res) {
     res.status(400).json({ error: error.message });
   }
 }
+
+async function getNewest(req, res) {
+    try {
+      res.status(200).json(await Tag.findOne().sort({createdAt: -1}));
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  }

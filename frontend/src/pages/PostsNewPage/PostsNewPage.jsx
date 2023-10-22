@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Loader from "../../components/Loader/Loader";
-import { getTags, createTag } from "../../utilities/tags-service"
+import { getTags, createTag, getNewestTag } from "../../utilities/tags-service"
 import { createPost } from "../../utilities/posts-service";
 import TagItem from "./TagItem";
 import "./PostsNewPage.css"
@@ -60,11 +60,10 @@ export default function PostsNewPage({user}) {
         try {
             await createTag(tagData)
             await handleRequest()
-            // const newFormData = {...formData}
-            const newTag = tags?.find((tag) => tag.tagName === tagFormData.toLowerCase())
-            // console.log("newtag", newTag) // not working bc async usestate function
-            // newFormData.tags.push(newTag._id)
-            // setFormData(newFormData)
+            const newestTag = await getNewestTag()
+            const newFormData = {...formData}
+            newFormData.tags.push(newestTag._id)
+            setFormData(newFormData)
             setTagFormData("")
         }catch(error) {
             console.log(error)

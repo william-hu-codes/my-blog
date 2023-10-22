@@ -19,6 +19,7 @@ router.get('/', tagsCtrl.index)
 ///////////////////////////////
 // SHOW - DETAIL - GET
 ////////////////////////////////
+router.get("/newest", tagsCtrl.getNewest)
 router.get('/:id', tagsCtrl.show)
 
 ///////////////////////////////

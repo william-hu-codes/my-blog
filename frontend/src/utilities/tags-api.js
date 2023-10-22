@@ -8,3 +8,7 @@ export async function index() {
 export async function create(data) {
     return sendRequest(`${BASE_URL}/tags`, "POST", data)
 }
+
+export async function getNewestTag() {
+    return sendRequest(`${BASE_URL}/tags/newest`, "GET")
+}

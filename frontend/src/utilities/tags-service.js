@@ -17,3 +17,12 @@ export async function createTag(data){
         return err
     }
 }
+
+export async function getNewestTag() {
+    try {
+        const response = await tagsAPI.getNewestTag()
+        return response
+    }catch(err) {
+        return err
+    }
+}
