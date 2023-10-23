@@ -7,7 +7,7 @@ import PostItem from "./PostItem";
 
 export default function PostIndexPage ({user}) {
     const [posts, setPosts] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     async function handleRequest() {
         const response = await getPosts();
