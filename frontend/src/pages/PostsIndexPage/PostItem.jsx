@@ -4,14 +4,19 @@ import { incrementLike } from "../../utilities/posts-service"
 
 export default function PostItem({post, idx}) {
     const [showMore, setShowMore] = useState(false)
-    const [liked, setLiked] = useState(false)
+    const [liked, setLiked] = useState(window.localStorage.getItem(`likedPost${post._id}`))
     const [likes, setLikes] = useState(post.likes)
+
+    // if(window.localStorage.getItem("liked")) {
+    //     setLiked(window.localStorage.getItem("liked"))
+    // }
     
     async function handleLike(evt) {
         if (!liked) {
             setLiked(true)
             setLikes(likes + 1)
             await incrementLike(post._id)
+            window.localStorage.setItem(`likedPost${post._id}`, true)
         }        
     }
 
