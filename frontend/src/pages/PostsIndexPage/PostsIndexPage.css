@@ -54,6 +54,10 @@
     color: red;
 }
 
+.unliked-icon:hover {
+    color: var(--pink-color);
+}
+
 .post-tags {
     /* margin: 10px; */
     display: flex;
