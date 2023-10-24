@@ -125,7 +125,7 @@ export default function PostsNewPage({user}) {
                 {isPosting ? 
                     <Loader />
                     :
-                    <button className="flex" onClick={handleSubmit}>post</button>
+                    <button className="flex" onClick={handleSubmit} disabled={!imageUrl}>post</button>
                 }
 
         </section>

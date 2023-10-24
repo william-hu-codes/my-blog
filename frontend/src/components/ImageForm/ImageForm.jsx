@@ -2,6 +2,7 @@ import { getS3Url } from "../../utilities/posts-service"
 import { sendS3Url } from "../../utilities/posts-service"
 import { useEffect, useState, useRef } from "react"
 import useFirstRender from "../UseFirstRender/UseFirstRender"
+import Loader from "../Loader/Loader"
 import "./ImageForm.css"
 
 export default function ImageForm({imageFormData, setImageFormData, imageUrl, setImageUrl}) {
@@ -11,6 +12,7 @@ export default function ImageForm({imageFormData, setImageFormData, imageUrl, se
     // const [imageUrl, setImageUrl] = useState("")
 
     const firstRender = useFirstRender()
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         if (!firstRender) {
@@ -22,10 +24,12 @@ export default function ImageForm({imageFormData, setImageFormData, imageUrl, se
         // evt.preventDefault()
         const file = imageFormData
         try {
+            setIsLoading(true)
             const { url } = await getS3Url()
             // console.log(url)
             setImageUrl(await sendS3Url(url, imageFormData))
             // console.log(imageUrl)
+            setIsLoading(false)
         }catch (error) {
             console.log(error)
         }
@@ -45,7 +49,9 @@ export default function ImageForm({imageFormData, setImageFormData, imageUrl, se
     return (
         <section className="image-form-ctr">
             <input type="file" name="images" accept="image/*" onChange={handleImageFormChange} />
-            
+            <br />
+            {isLoading ? <Loader /> : null}
+            <br />
             {imageUrl && <img width="250px" src={imageUrl} alt="uploaded image" /> }
 
             {/* <button onClick={handleSubmit}>upload</button> */}
