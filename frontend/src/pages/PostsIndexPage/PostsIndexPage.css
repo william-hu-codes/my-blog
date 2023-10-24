@@ -10,8 +10,12 @@
     margin: 10px 0;
 }
 
-.location, .date {
+/* .location, .date {
     font-style: italic;
+} */
+
+.post-title {
+    margin-bottom: 3px;
 }
 
 .post-image {
