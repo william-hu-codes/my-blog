@@ -9,6 +9,9 @@ export default function PostItem({post, idx}) {
             <p className="location">{post.location}</p>
             <p className="date">{new Date(post.date).toDateString()}</p>
             <img className="post-image" src={post.images[0]} alt="post image" />
+            <div className="comment-like">
+                
+            </div>
             <div className="post-tags">
                 {post.tags?.map((tag) => <p className="post-tag">{tag.tagName}</p>)}
             </div>
