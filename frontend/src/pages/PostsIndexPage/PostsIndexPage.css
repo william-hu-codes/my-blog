@@ -2,6 +2,9 @@
     text-align: left;
     /* margin: 0 auto; */
 }
+/* .post-item-ctr > * {
+    border: 1px solid red;
+} */
 
 .post-item-ctr-background {
     background: var(--pearl-color);
