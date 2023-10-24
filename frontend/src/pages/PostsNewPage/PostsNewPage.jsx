@@ -85,6 +85,7 @@ export default function PostsNewPage({user}) {
     const filteredTagsList = filteredTags?.map((tag, idx) => <TagItem tag={tag} idx={idx} formData={formData} setFormData={setFormData} />)
     const allTagNames = tags?.map((tag) => tag.tagName)
 
+    // console.log(formData)
 
     return !user ? (
         <>
