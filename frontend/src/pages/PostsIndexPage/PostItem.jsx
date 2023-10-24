@@ -10,8 +10,8 @@ export default function PostItem({post, idx}) {
     async function handleLike(evt) {
         if (!liked) {
             setLiked(true)
-            await incrementLike(post._id)
             setLikes(likes + 1)
+            await incrementLike(post._id)
         }        
     }
 
