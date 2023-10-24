@@ -30,7 +30,7 @@ export default function PostItem({post, idx}) {
                 <img className="post-image" src={post.images[0]} alt="post image" />
                 <div className="comment-like-ctr">
                         <p>{likes} {likes === 1 ? "like" : "likes"}</p>
-                        <AiOutlineHeart className={`post-icon ${liked ? "hidden" : ""}`} onClick={handleLike}/>
+                        <AiOutlineHeart className={`post-icon unliked-icon ${liked ? "hidden" : ""}`} onClick={handleLike}/>
                         <AiFillHeart className={`post-icon liked-icon ${liked ? "" : "hidden"}`}/>
                 </div>
                 <div className="post-tags">
