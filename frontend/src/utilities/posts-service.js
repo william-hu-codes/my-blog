@@ -75,4 +75,12 @@ export async function sendS3Url(url, file) {
     }
 }
 
-
+export async function incrementLike(postId) {
+    try {
+        const response = await postsAPI.incrementLike(postId)
+        return response
+    }catch(err) {
+        console.log(err)
+        return err
+    }
+}

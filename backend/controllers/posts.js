@@ -7,6 +7,7 @@ module.exports = {
   show,
   update,
   delete: destroy,
+  like
 };
 
 async function create(req, res) {
@@ -39,6 +40,18 @@ async function index(req, res) {
 async function show(req, res) {
   try {
     res.status(200).json(await Post.findById(req.params.id));
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}
+
+async function like(req, res) {
+  try {
+    // console.log("getting to post like action")
+    const post = await Post.findById(req.params.id)
+    post.likes = post.likes + 1
+    await post.save()
+    res.status(200).json(post);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

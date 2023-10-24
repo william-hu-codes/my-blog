@@ -22,6 +22,10 @@ export async function destroy(id) {
   return sendRequest(`${BASE_URL}/posts/${id}`, "DELETE")
 }
 
+export async function incrementLike(postId) {
+  return sendRequest(`${BASE_URL}/posts/${postId}/like`, "POST")
+}
+
 export async function getS3Url() {
   return sendRequest(`${BASE_URL}/s3urls`, "GET")
 }

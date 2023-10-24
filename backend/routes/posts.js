@@ -27,6 +27,8 @@ router.get('/:id', postsCtrl.show)
 ////////////////////////////////
 router.post('/', ensureLoggedIn, postsCtrl.create)
 
+router.post('/:id/like', postsCtrl.like)
+
 ///////////////////////////////
 // DESTROY - DELETE 
 ////////////////////////////////
