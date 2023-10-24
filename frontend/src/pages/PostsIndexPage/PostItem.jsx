@@ -34,9 +34,13 @@ export default function PostItem({post, idx}) {
                 {showMore ? 
                     <p className="post-body">{post.body}...</p>
                     :
-                    <p className="post-body">{post.body.substring(0, 125)}...</p>
+                    <p className="post-body">{post.body.substring(0, 125)}{post.body.length > 125 ? "..." : ""}</p>
                 }
-                <button onClick={() => setShowMore(!showMore)}>{showMore ? "show less" : "show more"}</button>
+                {post.body.length > 125 ? 
+                    <button onClick={() => setShowMore(!showMore)} className="show-more">{showMore ? "show less" : "show more"}</button>
+                    :
+                    null
+                }
             </div>
         </section>
     )
