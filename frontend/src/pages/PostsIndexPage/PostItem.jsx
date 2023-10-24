@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
+
 
 export default function PostItem({post, idx}) {
     const [showMore, setShowMore] = useState(false)
@@ -9,8 +11,10 @@ export default function PostItem({post, idx}) {
             <p className="location">{post.location}</p>
             <p className="date">{new Date(post.date).toDateString()}</p>
             <img className="post-image" src={post.images[0]} alt="post image" />
-            <div className="comment-like">
-                
+            <div className="comment-like-ctr">
+                    <p>{post.likes} likes</p>
+                    <AiFillHeart className="post-icon"/>
+                    <AiOutlineHeart className="post-icon"/>
             </div>
             <div className="post-tags">
                 {post.tags?.map((tag) => <p className="post-tag">{tag.tagName}</p>)}
