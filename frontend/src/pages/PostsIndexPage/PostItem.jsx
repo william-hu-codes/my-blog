@@ -27,7 +27,14 @@ export default function PostItem({post, idx}) {
                 <h3 className="post-title">{post.title}</h3>
                 <p className="location">{post.location}</p>
                 <p className="date">{new Date(post.date).toDateString()}</p>
-                <img className="post-image" src={post.images[0]} alt="post image" />
+
+                {
+                    post.images[0] ?
+                    <img className="post-image" src={post.images[0]} alt="post image" />
+                    :
+                    null
+                }
+
                 <div className="comment-like-ctr">
                         <p>{likes} {likes === 1 ? "like" : "likes"}</p>
                         <AiOutlineHeart className={`post-icon unliked-icon ${liked ? "hidden" : ""}`} onClick={handleLike}/>
