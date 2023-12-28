@@ -30,9 +30,11 @@
 }
 
 .post-image {
-    width: 80vw;
+    /* width: 80vw; */
     max-width: 800px;
     margin-top: 8px;
+    max-height: 80vh;
+    /* max-height: 800px; */
 }
 
 .comment-like-ctr {
