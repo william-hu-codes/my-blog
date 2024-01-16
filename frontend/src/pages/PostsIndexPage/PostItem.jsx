@@ -44,7 +44,7 @@ export default function PostItem({post, idx}) {
                     {post.tags?.map((tag) => <p className="post-tag">{tag.tagName}</p>)}
                 </div>
                 {showMore ? 
-                    <p className="post-body">{post.body}...</p>
+                    <p className="post-body">{post.body}</p>
                     :
                     <p className="post-body">{post.body.substring(0, 125)}{post.body.length > 125 ? "..." : ""}</p>
                 }
