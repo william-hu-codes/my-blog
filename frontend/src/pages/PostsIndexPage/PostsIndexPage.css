@@ -88,3 +88,9 @@
     border-radius: 10px;
     color: blue;
 } */
+
+@media only screen and (max-width: 935px) {
+    .post-image {
+        max-width: 80vw;
+    }
+}
