@@ -3,6 +3,6 @@ const router = express.Router()
 const s3urlsCtrl = require("../controllers/s3urls")
 const ensureLoggedIn = require('../config/ensureLoggedIn')
 
-router.get('/', s3urlsCtrl.get)
+router.get('/', ensureLoggedIn, s3urlsCtrl.get)
 
 module.exports = router
